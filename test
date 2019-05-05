@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+
+
+for car in bmw ford toyota nissan
+	   do
+		      echo "Value of car is: $car"
+	      done
