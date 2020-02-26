@@ -1,0 +1,33 @@
+#!/bin/bash
+metro=1
+read -p "please enter your card amount: " value
+staticvalue=$value
+count=0
+read -p "please enter your max funding amount: " max
+while [ $metro -gt 0 ]  # endless loop
+do
+count=$(echo $count+1|bc)
+value=$(echo $value+0.05|bc)
+value1=$(echo $value%2.75|bc)
+
+
+        if [ $(echo $value1==0|bc) -eq 1 ] # boolean when no reminder returns true 1
+        then
+                add=$(echo $count*0.05|bc -l)
+                total=$(echo $add+$value|bc -l)
+                rides=$(echo $total/2.75|bc)
+
+                echo Add $add to your card of $staticvalue to get $rides rides 0f 2.75 each
+                echo ...ha ha F U  MTA
+                echo Sequent complete
+                exit 0
+        elif [ $(echo "$value>$max"|bc) -eq 1 ] #boolean return true 1 if value greater than max. "" wrapper around variables required pipe into bc for integer conversion.
+        then
+                echo you are max out at $value over $max....MTA Got you... Your screwed
+                exit 0
+        else
+                echo .... processing Sequent$count
+                continue
+        fi
+
+done
