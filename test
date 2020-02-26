@@ -3,3 +3,19 @@ for car in bmw ford toyota nissan
 	   do
 		      echo "Value of car is: $car"
 	      done
+	      #!/in/bash
+
+sum=0
+count=5
+
+
+
+for ((i=1;i<$count;i++))
+do
+value=4
+sum=$[$sum+$value]
+done
+        result=$(echo "scale=3; $sum/$count" | bc -l)
+
+  echo $result
+~              
